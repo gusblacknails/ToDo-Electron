@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add</title>
+</head>
+<body>
+<div>
+	
+<form >
+	<label >Tareas pendientes</label>
+	<input autofocus />
+	<button type= 'submit'>Add</button>
+</form>
+
+</div>
+<script>
+const electron = require ('electron')
+const { ipcRenderer } = electron
+
+	
+document.querySelector('form').addEventListener('submit', (event) => {
+		event.preventDefault()
+		const { value } = document.querySelector('input')
+		ipcRenderer.send('todo:add', value)
+		// debugger
+	})
+	</script>
+	
+</body>
+</html>
